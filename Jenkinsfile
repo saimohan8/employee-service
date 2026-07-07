@@ -1,5 +1,8 @@
 pipeline {
  agent any
+   tools {
+        maven 'Maven3'
+    }
  environment { IMAGE_NAME="YOUR_DOCKERHUB_USERNAME/department-service:${BUILD_NUMBER}" }
  stages {
   stage('Checkout'){steps{checkout scm}}
