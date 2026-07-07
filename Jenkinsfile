@@ -3,7 +3,10 @@ pipeline {
    tools {
         maven 'Maven3'
     }
- environment { IMAGE_NAME="YOUR_DOCKERHUB_USERNAME/department-service:${BUILD_NUMBER}" }
+ environment {
+    DOCKER_USERNAME = "saimohan2026"
+    IMAGE_NAME = "${DOCKER_USERNAME}/department-service:${BUILD_NUMBER}"
+}
  stages {
   stage('Checkout'){steps{checkout scm}}
   stage('Build'){steps{sh 'mvn clean package -DskipTests'}}
