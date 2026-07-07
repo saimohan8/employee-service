@@ -5,7 +5,8 @@ pipeline {
     }
  environment {
     DOCKER_USERNAME = "saimohan2026"
-    IMAGE_NAME = "${DOCKER_USERNAME}/department-service:${BUILD_NUMBER}"
+    IMAGE_TAG = "v${BUILD_NUMBER}"
+    IMAGE_NAME = "${DOCKER_USERNAME}/${JOB_NAME}:${IMAGE_TAG}"
 }
  stages {
   stage('Checkout'){steps{checkout scm}}
